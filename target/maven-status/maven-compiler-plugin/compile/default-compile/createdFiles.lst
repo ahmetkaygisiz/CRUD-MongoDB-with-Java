@@ -1,8 +1,0 @@
-domain/Transaction.class
-domain/Role.class
-domain/User.class
-database/UserRepository$2.class
-database/UserRepository.class
-App.class
-domain/Account.class
-database/UserRepository$1.class

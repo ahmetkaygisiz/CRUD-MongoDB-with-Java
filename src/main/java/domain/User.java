@@ -1,37 +1,28 @@
 package domain;
 
-import com.google.gson.Gson;
-import com.mongodb.BasicDBObject;
-import com.mongodb.DBObject;
-import com.mongodb.util.JSON;
-import org.bson.codecs.pojo.annotations.BsonId;
-import org.bson.codecs.pojo.annotations.BsonIgnore;
+import org.bson.codecs.pojo.annotations.BsonCreator;
+import org.bson.codecs.pojo.annotations.BsonDiscriminator;
+import org.bson.codecs.pojo.annotations.BsonProperty;
 import org.bson.types.ObjectId;
-
-import java.util.Date;
 import java.util.List;
 
 public class User {
 
-    private ObjectId _id;
+    private ObjectId id;
     private String firstName;
     private String lastName;
     private String email;
     private String phoneNumber;
-    @BsonIgnore
-    private Date createdAt = new Date();
-
     private boolean active;
     private Role role;
     List<ObjectId> accountList;
 
-
-    public ObjectId get_id() {
-        return _id;
+    public ObjectId getId() {
+        return id;
     }
 
-    public void set_id(ObjectId _id) {
-        this._id = _id;
+    public void setId(ObjectId id) {
+        this.id = id;
     }
 
     public String getFirstName() {
@@ -66,14 +57,6 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
     public boolean isActive() {
         return active;
     }
@@ -101,14 +84,13 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "_id=" + _id+
+                "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                ", createdAt=" + createdAt +
                 ", active=" + active +
-                ", role=" + role.getName() +
+                ", role=" + role +
                 ", accountList=" + accountList +
                 '}';
     }

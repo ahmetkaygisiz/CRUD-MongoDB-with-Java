@@ -1,28 +1,21 @@
 package domain;
 
 import org.bson.types.ObjectId;
-
 import java.util.List;
 
 public class Account {
-    /*
-    - account_number
-	- balance
-	- List<Transactions>
-//	- List<Card>
-     */
-    private ObjectId _id;
+
+    private ObjectId id;
     private ObjectId userId;
-    private String account_id;
+    private String account_number;
     private double balance;
     private List<Transaction> transaction;
 
-    public ObjectId get_id() {
-        return _id;
+    public ObjectId getId() {
+        return id;
     }
-
-    public void set_id(ObjectId _id) {
-        this._id = _id;
+    public void setId(ObjectId id) {
+        this.id = id;
     }
 
     public ObjectId getUserId() {
@@ -33,12 +26,12 @@ public class Account {
         this.userId = userId;
     }
 
-    public String getAccount_id() {
-        return account_id;
+    public String getAccount_number() {
+        return account_number;
     }
 
-    public void setAccount_id(String account_id) {
-        this.account_id = account_id;
+    public void setAccount_number(String account_number) {
+        this.account_number = account_number;
     }
 
     public double getBalance() {
@@ -55,5 +48,16 @@ public class Account {
 
     public void setTransaction(List<Transaction> transaction) {
         this.transaction = transaction;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", account_number='" + account_number + '\'' +
+                ", balance=" + balance +
+                ", transaction=" + transaction +
+                '}';
     }
 }
